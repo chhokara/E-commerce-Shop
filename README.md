@@ -2,6 +2,8 @@
 ProShop is your one stop shop for purchasing state of the art tech products. Some of the core features include the ability to add items into a shopping cart, proceed
 to the checkout process, and view previously purchased items.
 
+![Screen Shot 2020-09-29 at 5 50 52 PM](https://user-images.githubusercontent.com/44816758/150244312-67d301fa-41bd-4f87-974d-cb0297aa6787.png)
+
 # Technologies Used
 
 Front End:
