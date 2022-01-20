@@ -20,6 +20,7 @@ Back End:
 # Front End Architecture
 The front end of this application uses React's built in functional component system and hooks to organize re-usable units of code. Redux is used to manage global level state of the 
 application which includes things like registered users, products, and orders.
+
 ![Alt text](Screen Shot 2022-01-19 at 4.51.23 PM.png)
 
 # Back End Architecture
