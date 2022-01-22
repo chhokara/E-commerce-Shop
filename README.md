@@ -25,6 +25,14 @@ application which includes things like registered users, products, and orders.
 
 <img width="1016" alt="Screen Shot 2022-01-19 at 4 51 23 PM" src="https://user-images.githubusercontent.com/44816758/150243190-99aaf25a-9022-4c2d-a5f1-a556328ebbbf.png">
 
+```
+const PlaceOrderScreen = ({ history }) => {
+  const dispatch = useDispatch();
+
+  const cart = useSelector((state) => state.cart);
+  ...
+```
+
 # Back End Architecture
 The back end of this application consists of an express server using an MVC design pattern. Models are written using the Mongoose ORM which queries a MongoDB database. This includes
 operations such as retrieving users and getting shopping cart items.
