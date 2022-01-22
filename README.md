@@ -25,12 +25,38 @@ application which includes things like registered users, products, and orders.
 
 <img width="1016" alt="Screen Shot 2022-01-19 at 4 51 23 PM" src="https://user-images.githubusercontent.com/44816758/150243190-99aaf25a-9022-4c2d-a5f1-a556328ebbbf.png">
 
-```
+```javascript
 const PlaceOrderScreen = ({ history }) => {
   const dispatch = useDispatch();
 
   const cart = useSelector((state) => state.cart);
+  
   ...
+  
+  const placeOrderHandler = () => {
+    dispatch(
+      createOrder({
+        orderItems: cart.cartItems,
+        shippingAddress: cart.shippingAddress,
+        paymentMethod: cart.paymentMethod,
+        itemsPrice: cart.itemsPrice,
+        taxPrice: cart.taxPrice,
+        shippingPrice: cart.shippingPrice,
+        totalPrice: cart.totalPrice,
+      })
+    );
+  };
+  
+  ...
+  
+  <Button
+       type="button"
+       className="btn-block"
+       disabled={cart.cartItems.length === 0}
+       onClick={placeOrderHandler}
+  >
+       Place Order
+  </Button>
 ```
 
 # Back End Architecture
