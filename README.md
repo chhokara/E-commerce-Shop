@@ -115,4 +115,7 @@ const addOrderItems = asyncHandler(async (req, res) => {
 });
 ```
 
+# Security
+JSON Web Tokens are being used to authorize route access. Only users who are registered and currently logged in to the system will be allowed to access certain routes in the application. 
 
+![JWT_tokens_EN](https://user-images.githubusercontent.com/44816758/150661160-3b55a28d-e1cf-4c76-b2d2-8d47ca8b075c.png)
