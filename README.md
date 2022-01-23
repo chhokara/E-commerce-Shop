@@ -119,3 +119,32 @@ const addOrderItems = asyncHandler(async (req, res) => {
 JSON Web Tokens are being used to authorize route access. Only users who are registered and currently logged in to the system will be allowed to access certain routes in the application. 
 
 ![JWT_tokens_EN](https://user-images.githubusercontent.com/44816758/150661160-3b55a28d-e1cf-4c76-b2d2-8d47ca8b075c.png)
+
+```javascript
+const protect = asyncHandler(async (req, res, next) => {
+  let token;
+  if (
+    req.headers.authorization &&
+    req.headers.authorization.startsWith("Bearer")
+  ) {
+    try {
+      token = req.headers.authorization.split(" ")[1];
+
+      const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+      req.user = await User.findById(decoded.id).select("-password");
+
+      next();
+    } catch (error) {
+      console.error(error);
+      res.status(401);
+      throw new Error("Not authorized, token failed");
+    }
+  }
+
+  if (!token) {
+    res.status(401);
+    throw new Error("Not authorized, no token");
+  }
+});
+```
