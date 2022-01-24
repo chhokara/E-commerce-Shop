@@ -152,14 +152,7 @@ const protect = asyncHandler(async (req, res, next) => {
 ```javascript
 export const getUserDetails = (id) => async (dispatch, getState) => {
   try {
-    dispatch({
-      type: USER_DETAILS_REQUEST,
-    });
-
-    const {
-      userLogin: { userInfo },
-    } = getState();
-
+    ...
     const config = {
       headers: {
         Authorization: `Bearer ${userInfo.token}`,
