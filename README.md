@@ -70,18 +70,6 @@ operations such as retrieving users and getting shopping cart items.
 <img width="1041" alt="Screen Shot 2022-01-19 at 4 52 13 PM" src="https://user-images.githubusercontent.com/44816758/150243215-8e2ed615-45c5-44ba-a173-d78a32498f40.png">
 
 ```javascript
-app.use("/api/orders", orderRoutes);
-
-...
-
-router.route("/").post(protect, addOrderItems);
-router.route("/myorders").get(protect, getMyOrders);
-router.route("/:id").get(protect, getOrderById);
-router.route("/:id/pay").put(protect, updateOrderToPaid);
-
-```
-
-```javascript
 const addOrderItems = asyncHandler(async (req, res) => {
   const {
     orderItems,
@@ -113,6 +101,18 @@ const addOrderItems = asyncHandler(async (req, res) => {
     res.status(201).json(createdOrder);
   }
 });
+```
+
+```javascript
+app.use("/api/orders", orderRoutes);
+
+...
+
+router.route("/").post(protect, addOrderItems);
+router.route("/myorders").get(protect, getMyOrders);
+router.route("/:id").get(protect, getOrderById);
+router.route("/:id/pay").put(protect, updateOrderToPaid);
+
 ```
 
 # Security
